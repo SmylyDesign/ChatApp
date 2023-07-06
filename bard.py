@@ -3,7 +3,7 @@ from bardapi import Bard
 import os
 
 proxies = {
-    'http': 'https://20.210.113.32:8123'
+    'http': 'https://133.18.234.13:80'
 }
 
 bard = Bard(token='XQjwnvgOFAlYps3qYVhmZTWAZdi20jH-GXPrHn6yrNROS0CF85cyvxUuRbpTHRAAZVraaw.', proxies=proxies, timeout=30)
