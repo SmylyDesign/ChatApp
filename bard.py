@@ -3,10 +3,10 @@ from bardapi import Bard
 import os
 
 proxies = {
-    'http': 'https://133.18.234.13:80'
+    'http': 'http://103.37.111.253:18081'
 }
 
-bard = Bard(token='YQjwnpshqJiWsojbrLKeDWf_6CBdhri2wUIItVfkwAzPRVcfAAWlqDM15r5EkNmSYV8Vaw.', proxies=proxies, timeout=30)
+bard = Bard(token='XQjwnvgOFAlYps3qYVhmZTWAZdi20jH-GXPrHn6yrNROS0CF85cyvxUuRbpTHRAAZVraaw.', proxies=proxies, timeout=30)
 
 
 if 'msg' not in st.session_state: 
