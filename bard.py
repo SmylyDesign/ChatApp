@@ -1,12 +1,7 @@
 import streamlit as st
-from bardapi import Bard 
+from bardapi import Bard
 import os
-
-proxies = {
-    'http': 'http://103.37.111.253:18081'
-}
-
-bard = Bard(token='XQjwnvgOFAlYps3qYVhmZTWAZdi20jH-GXPrHn6yrNROS0CF85cyvxUuRbpTHRAAZVraaw.', proxies=proxies, timeout=30)
+os.environ['_BARD_API_KEY']="YQjwnpshqJiWsojbrLKeDWf_6CBdhri2wUIItVfkwAzPRVcfAAWlqDM15r5EkNmSYV8Vaw."
 
 
 if 'msg' not in st.session_state: 
@@ -19,7 +14,7 @@ with st.form("form", clear_on_submit=False):
     submitted = st.form_submit_button("発言")
 
 if submitted:
-    result = bard.get_answer(you)['content']
+    result = Bard().get_answer(you)['content']
     st.session_state.msg.append(you)
     st.session_state.msg.append(result)
     st.info("**You :**\n\n"+you+"\n\n**Bard :**\n\n"+result)
