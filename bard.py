@@ -1,7 +1,7 @@
 import streamlit as st
 from bardapi import Bard
 import os
-os.environ['_BARD_API_KEY']="YQjwnpshqJiWsojbrLKeDWf_6CBdhri2wUIItVfkwAzPRVcfAAWlqDM15r5EkNmSYV8Vaw."
+os.environ['_BARD_API_KEY']="XQjwnvgOFAlYps3qYVhmZTWAZdi20jH-GXPrHn6yrNROS0CF85cyvxUuRbpTHRAAZVraaw."
 
 
 if 'msg' not in st.session_state: 
