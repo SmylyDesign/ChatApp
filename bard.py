@@ -4,8 +4,10 @@ import os
 import requests
 
 os.environ['_BARD_API_KEY']="YQjwnpshqJiWsojbrLKeDWf_6CBdhri2wUIItVfkwAzPRVcfAAWlqDM15r5EkNmSYV8Vaw."
+token = "YQjwnpshqJiWsojbrLKeDWf_6CBdhri2wUIItVfkwAzPRVcfAAWlqDM15r5EkNmSYV8Vaw."
 
 session = requests.Session()
+
  
 session.headers = {
 "Host": "bard.google.com",
@@ -18,7 +20,7 @@ session.headers = {
 
 session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY")) 
  
-bard = Bard(session=session, timeout=30)
+bard = Bard(token=token, session=session, timeout=30)
 
 
 if 'msg' not in st.session_state: 
