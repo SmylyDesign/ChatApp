@@ -1,7 +1,24 @@
 import streamlit as st
 from bardapi import Bard
 import os
+import requests
+
 os.environ['_BARD_API_KEY']="XQjwnvgOFAlYps3qYVhmZTWAZdi20jH-GXPrHn6yrNROS0CF85cyvxUuRbpTHRAAZVraaw."
+
+session = requests.Session()
+ 
+session.headers = {
+"Host": "bard.google.com",
+"X-Same-Domain": "1",
+"User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36",
+"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+"Origin": "https://bard.google.com",
+"Referer": "https://bard.google.com/",
+}
+
+session.cookies.set("__Secure-1PSID", os.getenv("_BARD_API_KEY")) 
+ 
+bard = Bard(session=session, timeout=30)
 
 
 if 'msg' not in st.session_state: 
@@ -14,7 +31,7 @@ with st.form("form", clear_on_submit=False):
     submitted = st.form_submit_button("発言")
 
 if submitted:
-    result = Bard().get_answer(you)['content']
+    result = bard.get_answer(you)['content']
     st.session_state.msg.append(you)
     st.session_state.msg.append(result)
     st.info("**You :**\n\n"+you+"\n\n**Bard :**\n\n"+result)
